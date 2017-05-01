@@ -1,4 +1,4 @@
-FROM node:7.9.0
+FROM hypriot/rpi-node:7
 
 MAINTAINER Marco Raddatz
 
