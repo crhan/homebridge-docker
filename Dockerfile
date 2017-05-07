@@ -1,10 +1,12 @@
-FROM hypriot/rpi-node:7
+FROM crhan/rpi-node:7.6
 
 MAINTAINER Marco Raddatz
 
 # Set environment variables
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
+
+RUN [ "cross-build-start" ]
 
 # Install dependencies and tools
 RUN apt-get update; \
@@ -26,6 +28,8 @@ USER root
 RUN mkdir -p /var/run/dbus
 
 ADD image/run.sh /root/run.sh
+
+RUN [ "cross-build-end" ]
 
 # Run container
 EXPOSE 5353 51826
